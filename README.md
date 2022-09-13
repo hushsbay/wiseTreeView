@@ -35,9 +35,8 @@ jQuery Plugin TreeView
 
     위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 참조)
     
-    (샘플1 : 3796개 데이터 - 속도 무난)    
+    (샘플1 : 3796개 데이터)    
 
-``` javascript
     const json = [
 
 {"cd":"11000000","nm_kor":"서울특별시","nm_eng":"Seoul"},
@@ -7634,6 +7633,7 @@ jQuery Plugin TreeView
 
 ] 
 
+``` javascript
     let option = {
         fieldMatch : {
             id : function(row, idx) { return row.cd },
@@ -7654,7 +7654,7 @@ jQuery Plugin TreeView
 
     const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount)
-```    
+```   
     
     (샘플2)
       
