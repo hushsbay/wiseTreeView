@@ -24,13 +24,24 @@ jQuery Plugin TreeView
     위 내용이 공통이며 아래 샘플 4개로 설명함
 
     (샘플1 : 3796개 데이터 - 속도 무난함)
+    
     <img src="./picture/sample1.png">
+    
     (샘플2)
+    
     <img src="./picture/sample2.png">
+    
     (샘플3)
+    
     <img src="./picture/sample3.png">
+    
     (샘플4)
+    
     <img src="./picture/sample4.png">
+    
+    =========================================================
+    
+    (샘플1 : 3796개 데이터 - 속도 무난함)
     
     const json = [
 
