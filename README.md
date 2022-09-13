@@ -27,7 +27,7 @@ jQuery Plugin TreeView
     
     (샘플1 : 3796개 데이터 - 속도 무난함)
     
-    <img src="./picture/sample1.png"></img><br/>
+    <img src="./doc.png"></img><br/>
     
     const json = [
 
