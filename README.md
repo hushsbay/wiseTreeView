@@ -29,7 +29,9 @@ jQuery Plugin TreeView
     <div id=tree style="width:000px"></div>
 ```
 
+``` javascript
     let list = $("#tree");
+```
 
     위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 참조)
     
