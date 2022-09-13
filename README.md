@@ -24,8 +24,13 @@ jQuery Plugin TreeView
     위 내용이 공통이며 아래 샘플 4개로 설명함
 
     (샘플1 : 3796개 데이터 - 속도 무난함)
-
     <img src="./picture/sample1.png">
+    (샘플2)
+    <img src="./picture/sample2.png">
+    (샘플3)
+    <img src="./picture/sample3.png">
+    (샘플4)
+    <img src="./picture/sample4.png">
     
     const json = [
 
@@ -7645,9 +7650,7 @@ jQuery Plugin TreeView
     console.log("done: " + ret.totalCount)
     
     (샘플2)
-
-    <img src="./picture/sample2.png">
-    
+        
     const json = [
         { nm : "A", depth : 0 },
         { nm : "A1", depth : 1 },
@@ -7663,8 +7666,6 @@ jQuery Plugin TreeView
     console.log("done: " + ret.totalCount) 
 
     (샘플3)
-
-    <img src="./picture/sample3.png">
     
     const json = [
         { path : "A" },
@@ -7683,8 +7684,6 @@ jQuery Plugin TreeView
     console.log("done: " + ret.totalCount)
 
     (샘플4)
-
-    <img src="./picture/sample4.png">
     
     const json = [
         { nm : "A", depth : 0 },
@@ -7709,7 +7708,7 @@ jQuery Plugin TreeView
     console.log("done: " + ret.totalCount) 
 
 * API 설명
-* 
+ 
   1. wiseTreeView가 json array에서 읽어 들이는 (정해진) 기본 필드(키)는 아래와 같습니다.
      { id : 0, nm : "AAA", path : "AAA", depth : 0, memcnt : 9 (하위노드갯수), text1 : "라라라", text2 : "abcd" } 
 
