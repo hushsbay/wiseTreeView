@@ -11,6 +11,7 @@ jQuery Plugin TreeView
 
 * 사용법 
 
+``` HTML
     <link rel="stylesheet" href="/wise/common/css/jquery-wiseTreeView-1.0.css">
 
     <!-- 여기에 jquery 모듈 import -->
@@ -18,6 +19,7 @@ jQuery Plugin TreeView
     <script src="/wise/common/js/jquery-wiseTreeView-1.0.js"></script>
 
     <div id=tree style="width:000px"></div>
+```
 
     let list = $("#tree");
 
