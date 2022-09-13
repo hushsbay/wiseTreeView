@@ -7624,45 +7624,194 @@ jQuery Plugin TreeView
 ] 
 
     let option = {
-
         fieldMatch : {
-
             id : function(row, idx) { return row.cd },
-
             nm : function(row, idx) { return row.nm_kor + " (" + row.cd + ", " + row.nm_eng + ", " + idx.toString() + ")" },
-
             depth : function(row, idx) {
-
                 if (row.cd.substring(2) == '000000') {
-
                     return 0
-
                 } else if (row.cd.substring(4) == '0000') {
-
                     return 1
-
                 } else if (row.cd.substring(5) == '000') {
-
                     return 2
-
                 } else {
-
                     return 3
-
                 }
-
             }
-
         }
-
     }
 
     const ret = list.wiseTreeView(option, json)
+    console.log("done: " + ret.totalCount)
+    
+    (샘플2)
 
+    <img src="./picture/sample2.png">
+    
+    const json = [
+        { nm : "A", depth : 0 },
+        { nm : "A1", depth : 1 },
+        { nm : "A11", depth : 2 },
+        { nm : "A12", depth : 2 },
+        { nm : "A13", depth : 2 },
+        { nm : "A131", depth : 3 },
+        { nm : "A21", depth : 2 },
+    ]
+
+    const option = { }
+    const ret = list.wiseTreeView(option, json)
+    console.log("done: " + ret.totalCount) 
+
+    (샘플3)
+
+    <img src="./picture/sample3.png">
+    
+    const json = [
+        { path : "A" },
+        { path : "A/A1" },
+        { path : "A/A1/A11", text1 : "라라라", text2 : "abcd" },
+        { path : "A/A1/A12" },
+        { path : "A/A13" },
+        { path : "A/A13/A131" },
+        { path : "A/A21" },
+        { path : "B" },
+        { path : "B/B1" },
+    ]
+
+    const option = { }
+    const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount)
 
-<img src="./picture/sample2.png">
+    (샘플4)
 
-<img src="./picture/sample3.png">
+    <img src="./picture/sample4.png">
+    
+    const json = [
+        { nm : "A", depth : 0 },
+        { nm : "A1", depth : 1 },
+        { nm : "A11", depth : 2 },
+        { nm : "A12", depth : 2 },
+        { nm : "A13", depth : 2 },
+        { nm : "A131", depth : 3 },
+        { nm : "A21", depth : 2 },
+    ]
 
-<img src="./picture/sample4.png">
+    const option = {
+        customRow : function(row1, row2, idx) {
+            debugger
+            let _html = "<div style='font-size:14px;line-height:25px;font-weight:bold'>" + row2.nm + "</div>"
+            _html += " <div id=state_" + row2.idx + " style='font-size:12px;color:darkgreen;line-height:15px'>id:" + (row2.id + " ===== depth:" + row2.depth) + "</div>"
+            return _html
+        },
+    }
+
+    const ret = list.wiseTreeView(option, json)
+    console.log("done: " + ret.totalCount) 
+
+* API 설명
+* 
+  1. wiseTreeView가 json array에서 읽어 들이는 (정해진) 기본 필드(키)는 아래와 같습니다.
+     { id : 0, nm : "AAA", path : "AAA", depth : 0, memcnt : 9 (하위노드갯수), text1 : "라라라", text2 : "abcd" } 
+
+  2. 만일, json array에 위에 해당하는 필드가 없으면 option중에 fieldMatch 함수로 매핑하면 됩니다 : 샘플1 참조 
+
+  3. 또는, 다음과 같이 일부 필드만 있어도 트리를 그려줍니다.
+      - nm, depth만 있어도 구현 가능 : 샘플2 참조
+      - path만 있어도 구현 가능 : 샘플3의 option.pathSeparator 기본값은 "/"인데 "/"으로 split해서 depth가 구해짐 
+
+  4. depth를 function()으로 처리해서 구현 가능 : 샘플1 참조 
+
+  5. 노드내 html로 처리해서 구현 가능 : 샘플4 참조 
+
+  6. option (알파벳순. 기본값도 표시한 것임)
+      - backColorChildSel = "lightsteelblue"
+        Child 노드 선택시 색상
+      - backColorParent = "ivory"
+        Parent 노드 색상
+      - customRow
+        사용자가 원하는 대로 노드내 html을 넣을 수 있는 function
+      - expand = 0
+        TreeView가 표시될 때 기본적으로 펼쳐질 depth
+      - fieldMatch
+        wiseTreeView가 json array에서 읽어 들이는 기본 필드(키)가 없을 뎡우 거기에 맞춰 매핑하는 함수
+      - showCheckbox = false
+        노드 왼쪽에 선택 가능하게 하는 체크박스 show 여부
+      - showChildImg = false
+        Child 노드 왼쪽에 이미지 표시 여부
+      - showParentImg = false
+        Parent 노드 왼쪽에 이미지 표시 여부
+      - idToClick
+        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 
+        해당 값이 있는 노드 클릭이벤트를 트리거함
+      - idToScroll
+        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 
+        해당 값이 있는 노드까지 스크롤해 보여줌
+      - imgChild = "doc.png"
+        Child 노드 이미지 파일
+      - imgCheckbox = "selecton.png"
+        체크박스 이미지 파일
+      - imgCollapse = "minus.png"
+        접기 이미지 파일
+      - imgExpand = "plus.png"
+        펼치기 이미지 파일
+      - imgParent = "folder.png"
+        Parent 노드 이미지 파일
+      - imgPath
+        이미지를 가져오는 기본 경로
+      - indent = 20
+        각 depth간에 인덴트
+      - pathSeparator = "/"
+        json array에서 읽어 들이는 기본 필드(키)중 path에 해당하는 값을 split할 델리미터
+      - rowHeight = "45px"
+        노드 높이
+      - showMemberCount = false
+        json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
+
+  7. Event 처리
+     
+     list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {
+          debugger
+      })
+
+      list.off("wiseTreeOnClick").on("wiseTreeOnClick", function(e, data) {
+          debugger
+          if (data.row2.type == "child") alert(data.row2.idx)
+      }) 
+
+      list.off("wiseTreeNodeShown").on("wiseTreeNodeShown", function(e, data) {
+          debugger //펼칠 때 해당 노드에 이미지 표시 등 작업이 필요할 경우 사용
+      })
+
+      list.off("wiseTreeNodeHidden").on("wiseTreeNodeHidden", function(e, data) {
+          debugger //접을 때 해당 노드 관련 처리가 필요할 경우 사용
+      })
+
+  8. properties & methods
+
+      예) const ret = list.wiseTreeView(option, json); debugger
+      - ret.jsonArr
+      - ret.totalCount
+      - ret.childCount
+      - ret.collapse(targetDepth)
+      - ret.collapseAll()
+      - ret.expand(targetDepth)
+      - ret.expandAll()
+      - ret.getText(idx)
+      - ret.getText1(idx)
+      - ret.getText2(idx)
+      - ret.setNodeLeftImage(idx, src, width, height, ignoreIfSrcExists)
+        트리 가져온 후 루프 돌면서 비동기로 이미지 추가시 사용
+         ignoreIfSrcExists : true시 기존 이미지 있어도 무조건 replace
+ 
+  9. callback 지원
+
+      list.wiseTreeView(option, json, function(ret) {
+          console.log("done: " + ret.totalCount)
+      })
+
+  10. async/await 지원            
+
+      const ret = await list.wiseTreeViewAsync(option, json)
+      console.log("done: " + ret.totalCount) 
+
+끝.
