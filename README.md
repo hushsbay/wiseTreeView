@@ -36,7 +36,8 @@ jQuery Plugin TreeView
     위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 참조)
     
     (샘플1 : 3796개 데이터 - 속도 무난)    
-    
+
+``` javascript
     const json = [
 
 {"cd":"11000000","nm_kor":"서울특별시","nm_eng":"Seoul"},
@@ -7653,9 +7654,11 @@ jQuery Plugin TreeView
 
     const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount)
+```    
     
     (샘플2)
       
+``` javascript      
     const json = [
         { nm : "A", depth : 0 },
         { nm : "A1", depth : 1 },
@@ -7669,9 +7672,11 @@ jQuery Plugin TreeView
     const option = { }
     const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount) 
+```
 
     (샘플3)
 
+``` javascript
     const json = [
         { path : "A" },
         { path : "A/A1" },
@@ -7687,9 +7692,11 @@ jQuery Plugin TreeView
     const option = { }
     const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount)
+```
 
     (샘플4)
 
+``` javascript
     const json = [
         { nm : "A", depth : 0 },
         { nm : "A1", depth : 1 },
@@ -7711,6 +7718,7 @@ jQuery Plugin TreeView
 
     const ret = list.wiseTreeView(option, json)
     console.log("done: " + ret.totalCount) 
+```
 
 * API 설명
  
@@ -7750,27 +7758,25 @@ jQuery Plugin TreeView
       - showMemberCount = false : json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
 
   7. Event 처리
-     
-     list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {
-     
-          debugger          
-      })
 
-      list.off("wiseTreeOnClick").on("wiseTreeOnClick", function(e, data) {
-      
+``` javascript
+     list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {     
+          debugger          
+     })
+
+     list.off("wiseTreeOnClick").on("wiseTreeOnClick", function(e, data) {      
           debugger          
           if (data.row2.type == "child") alert(data.row2.idx)          
       }) 
 
-      list.off("wiseTreeNodeShown").on("wiseTreeNodeShown", function(e, data) {
-      
+      list.off("wiseTreeNodeShown").on("wiseTreeNodeShown", function(e, data) {      
           debugger //펼칠 때 해당 노드에 이미지 표시 등 작업이 필요할 경우 사용          
       })
 
-      list.off("wiseTreeNodeHidden").on("wiseTreeNodeHidden", function(e, data) {
-      
+      list.off("wiseTreeNodeHidden").on("wiseTreeNodeHidden", function(e, data) {      
           debugger //접을 때 해당 노드 관련 처리가 필요할 경우 사용          
       })
+```
 
   8. properties & methods
 
@@ -7790,14 +7796,17 @@ jQuery Plugin TreeView
  
   9. callback 지원
 
+``` javascript
       list.wiseTreeView(option, json, function(ret) {
-      
           console.log("done: " + ret.totalCount)          
       })
+```
 
   10. async/await 지원            
 
+``` javascript
       const ret = await list.wiseTreeViewAsync(option, json)      
       console.log("done: " + ret.totalCount) 
+```
 
 끝.
