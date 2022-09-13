@@ -31,9 +31,9 @@ jQuery Plugin TreeView
 
     let list = $("#tree");
 
-    위 내용이 공통이며 아래 샘플 4개로 설명함
+    위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 참조)
     
-    (샘플1 : 3796개 데이터 - 속도 무난함)    
+    (샘플1 : 3796개 데이터 - 속도 무난)    
     
     const json = [
 
@@ -7743,11 +7743,9 @@ jQuery Plugin TreeView
       - showParentImg = false
         Parent 노드 왼쪽에 이미지 표시 여부
       - idToClick
-        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 
-        해당 값이 있는 노드 클릭이벤트를 트리거함
+        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 해당 값이 있는 노드 클릭이벤트를 트리거함
       - idToScroll
-        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 
-        해당 값이 있는 노드까지 스크롤해 보여줌
+        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 해당 값이 있는 노드까지 스크롤해 보여줌
       - imgChild = "doc.png"
         Child 노드 이미지 파일
       - imgCheckbox = "selecton.png"
@@ -7772,20 +7770,29 @@ jQuery Plugin TreeView
   7. Event 처리
      
      list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {
+     
           debugger
+          
       })
 
       list.off("wiseTreeOnClick").on("wiseTreeOnClick", function(e, data) {
+      
           debugger
+          
           if (data.row2.type == "child") alert(data.row2.idx)
+          
       }) 
 
       list.off("wiseTreeNodeShown").on("wiseTreeNodeShown", function(e, data) {
+      
           debugger //펼칠 때 해당 노드에 이미지 표시 등 작업이 필요할 경우 사용
+          
       })
 
       list.off("wiseTreeNodeHidden").on("wiseTreeNodeHidden", function(e, data) {
+      
           debugger //접을 때 해당 노드 관련 처리가 필요할 경우 사용
+          
       })
 
   8. properties & methods
@@ -7802,18 +7809,20 @@ jQuery Plugin TreeView
       - ret.getText1(idx)
       - ret.getText2(idx)
       - ret.setNodeLeftImage(idx, src, width, height, ignoreIfSrcExists)
-        트리 가져온 후 루프 돌면서 비동기로 이미지 추가시 사용
-         ignoreIfSrcExists : true시 기존 이미지 있어도 무조건 replace
+        트리 가져온 후 루프 돌면서 비동기로 이미지 추가시 사용. ignoreIfSrcExists : true시 기존 이미지 있어도 무조건 replace
  
   9. callback 지원
 
       list.wiseTreeView(option, json, function(ret) {
+      
           console.log("done: " + ret.totalCount)
+          
       })
 
   10. async/await 지원            
 
       const ret = await list.wiseTreeViewAsync(option, json)
+      
       console.log("done: " + ret.totalCount) 
 
 끝.
