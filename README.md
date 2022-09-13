@@ -3,4 +3,4 @@ jQuery Plugin TreeView
 
 작성중..
 
-<img src="./doc.png">
+<img src="./picture/sample1.png">
