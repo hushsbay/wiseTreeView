@@ -27,9 +27,7 @@ jQuery Plugin TreeView
     
     (샘플1 : 3796개 데이터 - 속도 무난함)
     
-``` HTML   
-    <img src="./picture/sample1.png">
-```
+    ![sample1](./picture/sample1.png)
     
     const json = [
 
