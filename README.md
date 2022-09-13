@@ -7726,73 +7726,48 @@ jQuery Plugin TreeView
   5. 노드내 html로 처리해서 구현 가능 : 샘플4 참조 
 
   6. option (알파벳순. 기본값도 표시한 것임)
-      - backColorChildSel = "lightsteelblue"
-        Child 노드 선택시 색상
-      - backColorParent = "ivory"
-        Parent 노드 색상
-      - customRow
-        사용자가 원하는 대로 노드내 html을 넣을 수 있는 function
-      - expand = 0
-        TreeView가 표시될 때 기본적으로 펼쳐질 depth
-      - fieldMatch
-        wiseTreeView가 json array에서 읽어 들이는 기본 필드(키)가 없을 뎡우 거기에 맞춰 매핑하는 함수
-      - showCheckbox = false
-        노드 왼쪽에 선택 가능하게 하는 체크박스 show 여부
-      - showChildImg = false
-        Child 노드 왼쪽에 이미지 표시 여부
-      - showParentImg = false
-        Parent 노드 왼쪽에 이미지 표시 여부
-      - idToClick
-        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 해당 값이 있는 노드 클릭이벤트를 트리거함
-      - idToScroll
-        json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 해당 값이 있는 노드까지 스크롤해 보여줌
-      - imgChild = "doc.png"
-        Child 노드 이미지 파일
-      - imgCheckbox = "selecton.png"
-        체크박스 이미지 파일
-      - imgCollapse = "minus.png"
-        접기 이미지 파일
-      - imgExpand = "plus.png"
-        펼치기 이미지 파일
-      - imgParent = "folder.png"
-        Parent 노드 이미지 파일
-      - imgPath
-        이미지를 가져오는 기본 경로
-      - indent = 20
-        각 depth간에 인덴트
-      - pathSeparator = "/"
-        json array에서 읽어 들이는 기본 필드(키)중 path에 해당하는 값을 split할 델리미터
-      - rowHeight = "45px"
-        노드 높이
-      - showMemberCount = false
-        json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
+      - backColorChildSel = "lightsteelblue" : Child 노드 선택시 색상
+      - backColorParent = "ivory" : Parent 노드 색상
+      - customRow : 사용자가 원하는 대로 노드내 html을 넣을 수 있는 function
+      - expand = 0 : TreeView가 표시될 때 기본적으로 펼쳐질 depth
+      - fieldMatch : wiseTreeView가 json array에서 읽어 들이는 기본 필드(키)가 없을 뎡우 거기에 맞춰 매핑하는 함수
+      - showCheckbox = false : 노드 왼쪽에 선택 가능하게 하는 체크박스 show 여부
+      - showChildImg = false : Child 노드 왼쪽에 이미지 표시 여부
+      - showParentImg = false : Parent 노드 왼쪽에 이미지 표시 여부
+      - idToClick : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 해당 값이 있는 노드 클릭이벤트를 트리거함
+      - idToScroll : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 해당 값이 있는 노드까지 스크롤해 보여줌
+      - imgChild = "doc.png" : Child 노드 이미지 파일
+      - imgCheckbox = "selecton.png" : 체크박스 이미지 파일
+      - imgCollapse = "minus.png" : 접기 이미지 파일
+      - imgExpand = "plus.png" : 펼치기 이미지 파일
+      - imgParent = "folder.png" : Parent 노드 이미지 파일
+      - imgPath : 이미지를 가져오는 기본 경로
+      - indent = 20 : 각 depth간에 인덴트
+      - pathSeparator = "/" : json array에서 읽어 들이는 기본 필드(키)중 path에 해당하는 값을 split할 델리미터
+      - rowHeight = "45px" : 노드 높이
+      - showMemberCount = false : json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
 
   7. Event 처리
      
      list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {
      
-          debugger
-          
+          debugger          
       })
 
       list.off("wiseTreeOnClick").on("wiseTreeOnClick", function(e, data) {
       
-          debugger
-          
-          if (data.row2.type == "child") alert(data.row2.idx)
-          
+          debugger          
+          if (data.row2.type == "child") alert(data.row2.idx)          
       }) 
 
       list.off("wiseTreeNodeShown").on("wiseTreeNodeShown", function(e, data) {
       
-          debugger //펼칠 때 해당 노드에 이미지 표시 등 작업이 필요할 경우 사용
-          
+          debugger //펼칠 때 해당 노드에 이미지 표시 등 작업이 필요할 경우 사용          
       })
 
       list.off("wiseTreeNodeHidden").on("wiseTreeNodeHidden", function(e, data) {
       
-          debugger //접을 때 해당 노드 관련 처리가 필요할 경우 사용
-          
+          debugger //접을 때 해당 노드 관련 처리가 필요할 경우 사용          
       })
 
   8. properties & methods
@@ -7815,14 +7790,12 @@ jQuery Plugin TreeView
 
       list.wiseTreeView(option, json, function(ret) {
       
-          console.log("done: " + ret.totalCount)
-          
+          console.log("done: " + ret.totalCount)          
       })
 
   10. async/await 지원            
 
-      const ret = await list.wiseTreeViewAsync(option, json)
-      
+      const ret = await list.wiseTreeViewAsync(option, json)      
       console.log("done: " + ret.totalCount) 
 
 끝.
