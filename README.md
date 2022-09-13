@@ -7,6 +7,14 @@ jQuery Plugin TreeView
 
    - 노드를 시원시원하게 커스터마이징하고, 노드 내부에 html/아이콘 등도 변경할 수 있게 개발 
 
+
+<img src="./picture/sample1.png"></img><br/>
+
+<img src="./picture/sample2.png"></img><br/>
+
+<img src="./picture/sample3.png"></img><br/>
+
+<img src="./picture/sample4.png"></img><br/>
  
 
 * 사용법 
@@ -25,9 +33,7 @@ jQuery Plugin TreeView
 
     위 내용이 공통이며 아래 샘플 4개로 설명함
     
-    (샘플1 : 3796개 데이터 - 속도 무난함)
-    
-    <img src="./doc.png"></img><br/>
+    (샘플1 : 3796개 데이터 - 속도 무난함)    
     
     const json = [
 
@@ -7647,10 +7653,7 @@ jQuery Plugin TreeView
     console.log("done: " + ret.totalCount)
     
     (샘플2)
-    
-``` HTML   
-    <img src="./picture/sample2.png">
-```        
+      
     const json = [
         { nm : "A", depth : 0 },
         { nm : "A1", depth : 1 },
@@ -7667,9 +7670,6 @@ jQuery Plugin TreeView
 
     (샘플3)
 
-``` HTML   
-    <img src="./picture/sample3.png">
-```    
     const json = [
         { path : "A" },
         { path : "A/A1" },
@@ -7688,9 +7688,6 @@ jQuery Plugin TreeView
 
     (샘플4)
 
-``` HTML   
-    <img src="./picture/sample4.png">
-```    
     const json = [
         { nm : "A", depth : 0 },
         { nm : "A1", depth : 1 },
