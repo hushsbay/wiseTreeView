@@ -33,9 +33,9 @@ jQuery Plugin TreeView
     let list = $("#tree");
 ```
 
-    위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 참조)
+    위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 4개 참조)
     
-    (샘플1 : 3796개 데이터)    
+    (샘플1 : 3796개 데이터 - [샘플1 바로가기](https://sendjay.com/etc/wiseTreeView/sample.html))
 
     const json = [
 
