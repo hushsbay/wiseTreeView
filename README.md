@@ -33,13 +33,13 @@ jQuery Plugin TreeView
     let list = $("#tree");
 ```
 
-    위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 4개 참조)
+위 내용이 공통이며 아래 샘플 4개로 설명함 (위 그림 4개 참조)
     
-    (샘플1 : 3796개 데이터)
-    
-    <https://sendjay.com/etc/wiseTreeView/sample.html>
+(샘플1 : 3796개 데이터)
 
-    const json = [
+<https://sendjay.com/etc/wiseTreeView/sample.html>
+    
+const json = [
 
 {"cd":"11000000","nm_kor":"서울특별시","nm_eng":"Seoul"},
 
