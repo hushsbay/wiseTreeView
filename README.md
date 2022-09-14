@@ -37,7 +37,7 @@ jQuery Plugin TreeView
     
     (샘플1 : 3796개 데이터)
     
-    [샘플1 바로가기](https://sendjay.com/etc/wiseTreeView/sample.html)
+    <https://sendjay.com/etc/wiseTreeView/sample.html>
 
     const json = [
 
