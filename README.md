@@ -1,11 +1,11 @@
 # wiseTreeView
 jQuery Plugin TreeView
 
-* 특징
+### 특징
 
-   - 작은 아이콘/폰트때문에 좁고 답답해 보이는 일반적인 TreeView 대신
+1. 작은 아이콘/폰트때문에 좁고 답답해 보이는 일반적인 TreeView 대신
 
-   - 노드를 시원시원하게 커스터마이징하고, 노드 내부에 html/아이콘 등도 변경할 수 있게 개발 
+2. 노드를 시원시원하게 커스터마이징하고, 노드 내부에 html/아이콘 등도 변경할 수 있게 개발 
 
 
 <img src="./picture/sample1.png"></img><br/>
@@ -17,7 +17,7 @@ jQuery Plugin TreeView
 <img src="./picture/sample4.png"></img><br/>
  
 
-* 사용법 
+### 사용법 
 
 ``` HTML
     <link rel="stylesheet" href="/wise/common/css/jquery-wiseTreeView-1.0.css">
@@ -7658,7 +7658,7 @@ const json = [
     console.log("done: " + ret.totalCount)
 ```   
     
-    (샘플2)
+(샘플2)
       
 ``` javascript      
     const json = [
@@ -7676,7 +7676,7 @@ const json = [
     console.log("done: " + ret.totalCount) 
 ```
 
-    (샘플3)
+(샘플3)
 
 ``` javascript
     const json = [
@@ -7696,7 +7696,7 @@ const json = [
     console.log("done: " + ret.totalCount)
 ```
 
-    (샘플4)
+(샘플4)
 
 ``` javascript
     const json = [
@@ -7722,44 +7722,44 @@ const json = [
     console.log("done: " + ret.totalCount) 
 ```
 
-* API 설명
+### API 설명
  
-  1. wiseTreeView가 json array에서 읽어 들이는 (정해진) 기본 필드(키)는 아래와 같습니다.
-     { id : 0, nm : "AAA", path : "AAA", depth : 0, memcnt : 9 (하위노드갯수), text1 : "라라라", text2 : "abcd" } 
+1. wiseTreeView가 json array에서 읽어 들이는 (정해진) 기본 필드(키)는 아래와 같습니다.
+   { id : 0, nm : "AAA", path : "AAA", depth : 0, memcnt : 9 (하위노드갯수), text1 : "라라라", text2 : "abcd" } 
 
-  2. 만일, json array에 위에 해당하는 필드가 없으면 option중에 fieldMatch 함수로 매핑하면 됩니다 : 샘플1 참조 
+2. 만일, json array에 위에 해당하는 필드가 없으면 option중에 fieldMatch 함수로 매핑하면 됩니다 : 샘플1 참조 
 
-  3. 또는, 다음과 같이 일부 필드만 있어도 트리를 그려줍니다.
-      - nm, depth만 있어도 구현 가능 : 샘플2 참조
-      - path만 있어도 구현 가능 : 샘플3의 option.pathSeparator 기본값은 "/"인데 "/"으로 split해서 depth가 구해짐 
+3. 또는, 다음과 같이 일부 필드만 있어도 트리를 그려줍니다.
+   - nm, depth만 있어도 구현 가능 : 샘플2 참조
+   - path만 있어도 구현 가능 : 샘플3의 option.pathSeparator 기본값은 "/"인데 "/"으로 split해서 depth가 구해짐 
 
-  4. depth를 function()으로 처리해서 구현 가능 : 샘플1 참조 
+4. depth를 function()으로 처리해서 구현 가능 : 샘플1 참조 
 
-  5. 노드내 html로 처리해서 구현 가능 : 샘플4 참조 
+5. 노드내 html로 처리해서 구현 가능 : 샘플4 참조 
 
-  6. option (알파벳순. 기본값도 표시한 것임)
-      - backColorChildSel = "lightsteelblue" : Child 노드 선택시 색상
-      - backColorParent = "ivory" : Parent 노드 색상
-      - customRow : 사용자가 원하는 대로 노드내 html을 넣을 수 있는 function
-      - expand = 0 : TreeView가 표시될 때 기본적으로 펼쳐질 depth
-      - fieldMatch : wiseTreeView가 json array에서 읽어 들이는 기본 필드(키)가 없을 뎡우 거기에 맞춰 매핑하는 함수
-      - showCheckbox = false : 노드 왼쪽에 선택 가능하게 하는 체크박스 show 여부
-      - showChildImg = false : Child 노드 왼쪽에 이미지 표시 여부
-      - showParentImg = false : Parent 노드 왼쪽에 이미지 표시 여부
-      - idToClick : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 해당 값이 있는 노드 클릭이벤트를 트리거함
-      - idToScroll : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 해당 값이 있는 노드까지 스크롤해 보여줌
-      - imgChild = "doc.png" : Child 노드 이미지 파일
-      - imgCheckbox = "selecton.png" : 체크박스 이미지 파일
-      - imgCollapse = "minus.png" : 접기 이미지 파일
-      - imgExpand = "plus.png" : 펼치기 이미지 파일
-      - imgParent = "folder.png" : Parent 노드 이미지 파일
-      - imgPath : 이미지를 가져오는 기본 경로
-      - indent = 20 : 각 depth간에 인덴트
-      - pathSeparator = "/" : json array에서 읽어 들이는 기본 필드(키)중 path에 해당하는 값을 split할 델리미터
-      - rowHeight = "45px" : 노드 높이
-      - showMemberCount = false : json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
+6. option (알파벳순. 기본값도 표시한 것임)
+   - backColorChildSel = "lightsteelblue" : Child 노드 선택시 색상
+   - backColorParent = "ivory" : Parent 노드 색상
+   - customRow : 사용자가 원하는 대로 노드내 html을 넣을 수 있는 function
+   - expand = 0 : TreeView가 표시될 때 기본적으로 펼쳐질 depth
+   - fieldMatch : wiseTreeView가 json array에서 읽어 들이는 기본 필드(키)가 없을 뎡우 거기에 맞춰 매핑하는 함수
+   - showCheckbox = false : 노드 왼쪽에 선택 가능하게 하는 체크박스 show 여부
+   - showChildImg = false : Child 노드 왼쪽에 이미지 표시 여부
+   - showParentImg = false : Parent 노드 왼쪽에 이미지 표시 여부
+   - idToClick : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToClick에 입력시 해당 값이 있는 노드 클릭이벤트를 트리거함
+   - idToScroll : json array에서 읽어 들이는 기본 필드(키)중 id에 해당하는 값을 idToScroll에 입력시 해당 값이 있는 노드까지 스크롤해 보여줌
+   - imgChild = "doc.png" : Child 노드 이미지 파일
+   - imgCheckbox = "selecton.png" : 체크박스 이미지 파일
+   - imgCollapse = "minus.png" : 접기 이미지 파일
+   - imgExpand = "plus.png" : 펼치기 이미지 파일
+   - imgParent = "folder.png" : Parent 노드 이미지 파일
+   - imgPath : 이미지를 가져오는 기본 경로
+   - indent = 20 : 각 depth간에 인덴트
+   - pathSeparator = "/" : json array에서 읽어 들이는 기본 필드(키)중 path에 해당하는 값을 split할 델리미터
+   - rowHeight = "45px" : 노드 높이
+   - showMemberCount = false : json array에서 읽어 들이는 기본 필드(키)중 memcnt가 있는 경우 memcnt show 여부 
 
-  7. Event 처리
+7. Event 처리
 
 ``` javascript
      list.off("wiseTreeOnCheck").on("wiseTreeOnCheck", function(e, data) {     
@@ -7780,23 +7780,24 @@ const json = [
       })
 ```
 
-  8. properties & methods
+8. properties & methods
 
-      예) const ret = list.wiseTreeView(option, json); debugger
-      - ret.jsonArr
-      - ret.totalCount
-      - ret.childCount
-      - ret.collapse(targetDepth)
-      - ret.collapseAll()
-      - ret.expand(targetDepth)
-      - ret.expandAll()
-      - ret.getText(idx)
-      - ret.getText1(idx)
-      - ret.getText2(idx)
-      - ret.setNodeLeftImage(idx, src, width, height, ignoreIfSrcExists)
+예) const ret = list.wiseTreeView(option, json); debugger
+
+    - ret.jsonArr
+    - ret.totalCount
+    - ret.childCount
+    - ret.collapse(targetDepth)
+    - ret.collapseAll()
+    - ret.expand(targetDepth)
+    - ret.expandAll()
+    - ret.getText(idx)
+    - ret.getText1(idx)
+    - ret.getText2(idx)
+    - ret.setNodeLeftImage(idx, src, width, height, ignoreIfSrcExists)
         트리 가져온 후 루프 돌면서 비동기로 이미지 추가시 사용. ignoreIfSrcExists : true시 기존 이미지 있어도 무조건 replace
  
-  9. callback 지원
+9. callback 지원
 
 ``` javascript
       list.wiseTreeView(option, json, function(ret) {
@@ -7804,7 +7805,7 @@ const json = [
       })
 ```
 
-  10. async/await 지원            
+10. async/await 지원            
 
 ``` javascript
       const ret = await list.wiseTreeViewAsync(option, json)      
